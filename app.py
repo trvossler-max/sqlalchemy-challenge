@@ -78,21 +78,9 @@ def stations():
     # Query to return a JSON list of stations from the dataset.
 #     st_results = session.query(station.station, station.name, station.latitude, station.longitude, station.elevation).all()
 
-    s_results = session.query(station.station, station.name).all()
-
-    
+    s_results = session.query(station.station).all()
+  
     session.close()
-
-    # Create a dictionary from the row data and append to a list of stations
-
-#     all_stations = []
-#     for station, name, latitude, longitude, elevation in st_results:
-#         station_dict = {}
-#         station_dict["station"] = station
-#         station_dict["name"] = name
-#         station_dict["lat"] = latitude
-#         station_dict["lon"] = longitude
-#         station_dict["elev"] = elevation
 
     all_stations = list(np.ravel(s_results))
     
